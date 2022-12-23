@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+        "moduleResolution": "node",
+        "module": "ESNext",
+        "types": [
+            "node",
+            "@wdio/globals/types",
+            "expect-webdriverio",
+            "@wdio/mocha-framework"
+        ],
+        "target": "es2022",
+        "resolveJsonModule": true,
+        "removeComments": true,
+        "outDir": "./.tsBuild/",
+    },
+    "include": [
+        "./config/**/*.ts",
+        "./test/**/*.ts"
+    ]}
