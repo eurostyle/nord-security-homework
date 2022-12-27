@@ -17,11 +17,12 @@
   },
   "scripts": {
     "wdio": "wdio run ./wdio.conf.ts",
-    "login": "wdio run ./wdio.conf.ts --spec test/specs/login/login.e2e.ts"
-
+    "login": "wdio run ./wdio.conf.ts --spec test/specs/login.e2e.spec.ts"
   },
   "type": "module",
   "dependencies": {
-    "dotenv": "^16.0.3"
+    "dotenv": "^16.0.3",
+    "node-fetch": "^3.3.0",
+    "class-transformer": "^0.5.1"
   }
 }
