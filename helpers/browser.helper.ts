@@ -1,6 +1,6 @@
 class BrowserHelper {
 
-    async regainLostWindowFocus(): Promise<void> {
+    public async regainLostWindowFocus(): Promise<void> {
         let handles: string[];
         // Wait until the next window handle exists
         await browser.waitUntil(async () => {
