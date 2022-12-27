@@ -17,7 +17,7 @@
   },
   "scripts": {
     "wdio": "wdio run ./wdio.conf.ts",
-    "login": "wdio run ./wdio.conf.ts --spec test/specs/login.e2e.ts"
+    "login": "wdio run ./wdio.conf.ts --spec test/specs/login/login.e2e.ts"
 
   },
   "type": "module",
