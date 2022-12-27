@@ -8,3 +8,4 @@ driver-logs
 /.idea/qa-automoniq.iml
 /.idea/modules.xml
 /.idea/shelf
+.env
