@@ -1,5 +1,5 @@
-import HomePage from '../../pageobjects/home.page.js';
-import AccessPasswordsPage from '../../pageobjects/login/accessPasswords.page.js';
+import HomePage from '../pageobjects/home.page.js';
+import AccessPasswordsPage from '../pageobjects/login/accessPasswords.page.js';
 
 describe('Test login on "Access my passwords" page', () => {
 
