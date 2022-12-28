@@ -1,4 +1,4 @@
-class BrowserHelper {
+export default class BrowserHelper {
 
     public async regainLostWindowFocus(): Promise<void> {
         let handles: string[];
@@ -19,5 +19,3 @@ class BrowserHelper {
     }
 
 }
-
-export default new BrowserHelper();

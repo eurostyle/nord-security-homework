@@ -4,7 +4,7 @@ import BasePage from '../base.page.js';
 import BrowserHelper from '../../../helpers/browser.helper.js';
 import HomePage from '../home.page.js';
 
-class AccessPasswordsPage extends BasePage {
+export default class AccessPasswordsPage extends BasePage {
     private readonly email: string;
 
     private readonly password: string;
@@ -44,6 +44,14 @@ class AccessPasswordsPage extends BasePage {
         return $('[data-testid="error-block"]');
     }
 
+    get homePage() {
+        return new HomePage();
+    }
+
+    get browserHelper() {
+        return new BrowserHelper();
+    }
+
     public async loginToAccessMyPasswords(email: string = this.email, password: string = this.password) {
         // submit email
         await this.navigateAndSubmitEmail(email);
@@ -67,11 +75,11 @@ class AccessPasswordsPage extends BasePage {
 
     public async navigateAndSubmitEmail(email: string): Promise<void> {
         // hover over login button to get a drop-down menu
-        await HomePage.hoverableButtonLogin.moveTo();
+        await this.homePage.hoverableButtonLogin.moveTo();
         // click on "Access my passwords" list item
         await this.routeAccessMyPasswords.click();
         // dynamically wait for the new browser tab to open and then regain browser focus within that tab
-        await BrowserHelper.regainLostWindowFocus();
+        await this.browserHelper.regainLostWindowFocus();
         // expect browser url contains "login"
         await expect(await browser.getUrl()).toContain('login');
         // click on button "Login"
@@ -85,5 +93,3 @@ class AccessPasswordsPage extends BasePage {
     }
 
 }
-
-export default new AccessPasswordsPage();

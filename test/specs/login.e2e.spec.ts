@@ -1,10 +1,17 @@
-import HomePage from '../pageobjects/home.page.js';
 import AccessPasswordsPage from '../pageobjects/login/accessPasswords.page.js';
+import HomePage from '../pageobjects/home.page.js';
 
 describe('Test login on "Access my passwords" page', () => {
+    let homePage: HomePage;
+    let passwordsPage: AccessPasswordsPage;
+
+    before(async () => {
+        homePage = new HomePage();
+        passwordsPage = new AccessPasswordsPage();
+    });
 
     beforeEach(async () => {
-        await HomePage.open();
+        await homePage.open();
     });
 
     afterEach(async () => {
@@ -20,14 +27,14 @@ describe('Test login on "Access my passwords" page', () => {
     });
 
     it('should login up to reCaptcha validation', async () => {
-        await AccessPasswordsPage.loginToAccessMyPasswords();
+        await passwordsPage.loginToAccessMyPasswords();
     });
 
     it('should not allow to submit an invalid email', async () => {
         const invalidEmail = 'invalidEmail!';
         // submit invalid email
-        await AccessPasswordsPage.navigateAndSubmitEmail(invalidEmail);
+        await passwordsPage.navigateAndSubmitEmail(invalidEmail);
         // expect to get input validation error message
-        await expect(await AccessPasswordsPage.inputValidationError).toBeDisplayed();
+        await expect(await passwordsPage.inputValidationError).toBeDisplayed();
     });
 });

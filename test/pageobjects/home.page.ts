@@ -1,6 +1,6 @@
 import BasePage from './base.page.js';
 
-class HomePage extends BasePage {
+export default class HomePage extends BasePage {
 
     public get hoverableButtonLogin() {
         return $('.HeaderV2__login-wrap');
@@ -10,5 +10,3 @@ class HomePage extends BasePage {
         return super.openPath('home');
     }
 }
-
-export default new HomePage();
