@@ -1,5 +1,6 @@
 {
   "name": "nord-security-homework",
+  "author": "Martynas Andriuskevicius",
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.47.0",
     "@typescript-eslint/parser": "^5.47.0",
