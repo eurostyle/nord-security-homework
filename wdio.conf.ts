@@ -1,6 +1,8 @@
-import type { Options } from '@wdio/types'
 
-export const config: Options.Testrunner = {
+import type { Options } from '@wdio/types';
+import { MochaOpts } from '@wdio/mocha-framework';
+
+export const config: Options.Testrunner & { mochaOpts: MochaOpts } = {
     //
     // ====================
     // Runner Configuration
@@ -9,11 +11,10 @@ export const config: Options.Testrunner = {
     runner: 'local',
     autoCompileOpts: {
         tsNodeOpts: {
-            project: './tsconfig.json'
-        }
+            project: './tsconfig.json',
+        },
     },
-    
-    
+
     //
     // ==================
     // Specify Test Files
@@ -31,7 +32,7 @@ export const config: Options.Testrunner = {
     // will be called from there.
     //
     specs: [
-        './test/specs/**/*.ts'
+        './test/specs/**/*.ts',
     ],
     // Patterns to exclude.
     exclude: [
@@ -60,14 +61,14 @@ export const config: Options.Testrunner = {
     // https://saucelabs.com/platform/platform-configurator
     //
     capabilities: [{
-    
+
         // maxInstances can get overwritten per capability. So if you have an in-house Selenium
         // grid with only 5 firefox instances available you can make sure that not more than
         // 5 instances get started at a time.
         maxInstances: 5,
         //
         browserName: 'chrome',
-        acceptInsecureCerts: true
+        acceptInsecureCerts: true,
         // If outputDir is provided WebdriverIO can capture driver session logs
         // it is possible to configure which logTypes to include/exclude.
         // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
@@ -121,7 +122,7 @@ export const config: Options.Testrunner = {
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
     services: ['chromedriver'],
-    
+
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
     // see also: https://webdriver.io/docs/frameworks
@@ -144,14 +145,12 @@ export const config: Options.Testrunner = {
     // see also: https://webdriver.io/docs/dot-reporter
     reporters: ['spec'],
 
-
-    
     //
     // Options to be passed to Mocha.
     // See the full list at http://mochajs.org/
     mochaOpts: {
         ui: 'bdd',
-        timeout: 60000
+        timeout: 60000,
     },
     //
     // =====
@@ -201,9 +200,8 @@ export const config: Options.Testrunner = {
     /**
      * Gets executed before test execution begins. At this point you can access to all global
      * variables like `browser`. It is the perfect place to define custom commands.
-     */
-    before: function () {
-        browser.maximizeWindow();
+     */ async before() {
+        await browser.maximizeWindow();
     },
     /**
      * Runs before a WebdriverIO command gets executed.
@@ -248,7 +246,6 @@ export const config: Options.Testrunner = {
     // afterTest: function(test, context, { error, result, duration, passed, retries }) {
     // },
 
-
     /**
      * Hook that gets executed after the suite has ended
      * @param {Object} suite suite details
@@ -292,10 +289,10 @@ export const config: Options.Testrunner = {
     // onComplete: function(exitCode, config, capabilities, results) {
     // },
     /**
-    * Gets executed when a refresh happens.
-    * @param {String} oldSessionId session ID of the old session
-    * @param {String} newSessionId session ID of the new session
-    */
+     * Gets executed when a refresh happens.
+     * @param {String} oldSessionId session ID of the old session
+     * @param {String} newSessionId session ID of the new session
+     */
     // onReload: function(oldSessionId, newSessionId) {
     // }
-}
+};

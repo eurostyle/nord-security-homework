@@ -1,5 +1,4 @@
 node_modules
-driver-logs
 .tsBuild
 .DS_Store
 /.idea/misc.xml
@@ -8,3 +7,4 @@ driver-logs
 /.idea/qa-automoniq.iml
 /.idea/modules.xml
 /.idea/shelf
+.env

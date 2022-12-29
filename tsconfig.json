@@ -9,11 +9,10 @@
             "@wdio/mocha-framework"
         ],
         "target": "es2022",
-        "resolveJsonModule": true,
         "removeComments": true,
         "outDir": "./.tsBuild/",
+        "noImplicitAny": true,
     },
     "include": [
-        "./config/**/*.ts",
         "./test/**/*.ts"
     ]}
