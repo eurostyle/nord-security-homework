@@ -52,6 +52,12 @@ export default class AccessPasswordsPage extends BasePage {
         return new BrowserHelper();
     }
 
+    /**
+     * Navigates and logs in to the "Access My Passwords" page using the provided email and password.
+     * If no email or password is provided, the default values from the environment vars will be used.
+     * @param email The email to use for login.
+     * @param password The password to use for login.
+     */
     public async loginToAccessMyPasswords(email: string = this.email, password: string = this.password) {
         // submit email
         await this.navigateAndSubmitEmail(email);
@@ -73,6 +79,10 @@ export default class AccessPasswordsPage extends BasePage {
         await expect(await this.htmlRoot.getText()).toContain('Please complete the security check to proceed');
     }
 
+    /**
+     * Navigates to the "Access My Passwords" page and submits the provided email.
+     * @param email The email to submit.
+     */
     public async navigateAndSubmitEmail(email: string): Promise<void> {
         // hover over login button to get a drop-down menu
         await this.homePage.hoverableButtonLogin.moveTo();

@@ -1,5 +1,4 @@
 node_modules
-driver-logs
 .tsBuild
 .DS_Store
 /.idea/misc.xml

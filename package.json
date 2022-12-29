@@ -17,7 +17,9 @@
   },
   "scripts": {
     "wdio": "wdio run ./wdio.conf.ts",
-    "login": "wdio run ./wdio.conf.ts --spec test/specs/login.e2e.spec.ts"
+    "login": "wdio run ./wdio.conf.ts --spec test/specs/login.e2e.spec.ts",
+    "artist": "wdio run ./wdio.conf.ts --spec test/specs/artist.api.spec.ts",
+    "xss": "wdio run ./wdio.conf.ts --spec test/specs/xss.security.spec.ts"
   },
   "type": "module",
   "dependencies": {
