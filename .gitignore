@@ -4,7 +4,6 @@ node_modules
 /.idea/misc.xml
 /.idea/vcs.xml
 /.idea/workspace.xml
-/.idea/qa-automoniq.iml
 /.idea/modules.xml
 /.idea/shelf
 .env
